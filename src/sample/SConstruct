@@ -1,0 +1,11 @@
+import platform
+import os
+
+ccflags = "-std=c++11 -Wall -g -I../../include"
+
+if platform.system() == "Windows":
+    env = Environment(tools = ["mingw"], CCFLAGS = ccflags, ENV = os.environ)
+else:
+    env = Environment(CCFLAGS = ccflags, ENV = os.environ)
+
+env.Program(target = "sample", source = Split("sample.cc"))
