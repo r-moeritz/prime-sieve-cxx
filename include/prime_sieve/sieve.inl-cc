@@ -8,7 +8,7 @@ using namespace std;
 template <typename T1, typename T2>
 static void fill_map_with_range(map<T1, T2>& m, const pair<T1, T1>& range, const T2& value) {
   for (auto i = range.first; i != range.second; ++i) {
-    m.insert({ i, value });
+    m.insert( make_pair(i, value) );
   }
 }
 

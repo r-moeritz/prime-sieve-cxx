@@ -10,3 +10,14 @@
 *.lai
 *.la
 *.a
+
+# Emacs backup files
+**~
+
+# VC files
+Debug/
+Release/
+*.sdf
+*.suo
+*.filters
+*.user

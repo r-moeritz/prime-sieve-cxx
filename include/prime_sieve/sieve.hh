@@ -9,6 +9,6 @@ namespace prime_sieve {
   std::vector<T> primes_in_range(const std::pair<T, T>&);
 }
 
-#include "sieve.inl"
+#include "sieve.inl-cc"
 
 #endif // #ifndef SIEVE_HH
