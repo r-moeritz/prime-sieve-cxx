@@ -21,3 +21,6 @@ Release/
 *.suo
 *.filters
 *.user
+
+# R# files
+_ReSharper*

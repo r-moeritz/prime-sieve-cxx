@@ -68,3 +68,54 @@ vector<T> prime_sieve::primes_in_range(const pair<T, T>& range) {
 
   return primes;
 }
+
+template<typename T>
+vector<T> prime_sieve::primes_lt_n(const T num) {
+  vector<bool> m(num, false);
+
+  // main part of the sieve of atkin
+  auto root = ceil(sqrt(num));
+  for (auto x = 1; x <= root; ++x) {
+    for (auto y = 1; y <= root; ++y) {
+      auto x2 = x*x;
+      auto y2 = y*y;
+
+      auto n = (4*x2) + y2;
+      if (n < num && (n%12 == 1 || n%12 == 5)) {
+        m[n].flip();
+      }
+
+      n = (3*x2) + y2;
+      if (n < num && n%12 == 7) {
+        m[n].flip();
+      }
+
+      n = (3*x2) - y2;
+      if (x > y && n < num && n%12 == 11) {
+        m[n].flip();
+      }
+    }
+  }
+
+  // mark 1, 2 & 3 as prime
+  m[1] = m[2] = m[3] = true;
+
+  // mark all multiples of primes as non-prime
+  for (auto r = 5; r <= root; ++r) {
+    if (bool(m[r])) {
+      auto r2 = r*r;
+      for (auto i = r2; i < num; i += r2) {
+        m[i] = false;
+      }
+    }
+  }
+
+  vector<T> primes;
+  for (auto i = 1; i != m.size(); ++i) {
+    if (bool(m[i])) {
+      primes.push_back(i);
+    }
+  }
+
+  return primes;  
+}
