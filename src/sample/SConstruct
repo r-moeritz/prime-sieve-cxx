@@ -1,7 +1,7 @@
 import platform
 import os
 
-ccflags = "-std=c++11 -Wall -g -I../../include"
+ccflags = "-std=c++11 -Wall -I../../include -O2"
 
 if platform.system() == "Windows":
     env = Environment(tools = ["mingw"], CCFLAGS = ccflags, ENV = os.environ)

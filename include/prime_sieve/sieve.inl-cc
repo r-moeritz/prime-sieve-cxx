@@ -111,7 +111,7 @@ vector<T> prime_sieve::primes_lt_n(const T num) {
   }
 
   vector<T> primes;
-  for (auto i = 1; i != m.size(); ++i) {
+  for (vector<bool>::size_type i = 1; i != m.size(); ++i) {
     if (bool(m[i])) {
       primes.push_back(i);
     }

@@ -11,7 +11,7 @@ int main() {
 
   for (auto& n : nv) {
     auto c1 = clock();
-	auto primes = primes_lt_n(n);
+    auto primes = primes_lt_n(n);
     auto c2 = clock();
     cout << "Found " << primes.size() << " primes in "
          << (c2 - c1)/static_cast<double>(CLOCKS_PER_SEC) << " seconds" << endl;
