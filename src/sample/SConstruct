@@ -1,11 +1,20 @@
 import platform
 import os
 
-ccflags = "-std=c++11 -Wall -I../../include -O2"
+ccflags = '-std=c++11 -Wall -O2'
+cpppath = ['../../include']
+source  = ['sample.cc']
+target  = 'sample'
 
-if platform.system() == "Windows":
-    env = Environment(tools = ["mingw"], CCFLAGS = ccflags, ENV = os.environ)
+if platform.system() == 'Windows':
+    env = Environment(tools = ['mingw'],
+                      CCFLAGS = ccflags,
+                      CPPPATH = cpppath,
+                      ENV = os.environ)
 else:
-    env = Environment(CCFLAGS = ccflags, ENV = os.environ)
+    env = Environment(CCFLAGS = ccflags,
+                      CPPPATH = cpppath,
+                      ENV = os.environ)
 
-env.Program(target = "sample", source = Split("sample.cc"))
+env.Program(target = target, 
+            source = source)

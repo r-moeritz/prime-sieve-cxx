@@ -24,3 +24,7 @@ Release/
 
 # R# files
 _ReSharper*
+
+# SCons & ELPY artifacts
+.ropeproject
+.sconsign.dblite
